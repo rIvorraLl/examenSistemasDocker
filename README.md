@@ -2,7 +2,7 @@
 
 
 
-- 1- Introducción.
+- **1.- Introducción.**
 
 Para completar esta tarea, como prerrequisito necesitaremos tener instalado `docker-engine` y `docker-compose`. Se describe a continuación cómo hace la instalación en un sistema Ubuntu. Comenzamos por actualizar y añadir dependencias:
 
@@ -48,9 +48,9 @@ Nos falta `docker-compose`, que podemos obtener con el siguiente comando:
 
 `sudo apt install docker-compose`
  
-- 2- Configuración del archivo docker-compose.yml.
+- **2.- Configuración del archivo docker-compose.yml.**
 
-Se incluye a continuación el archivo `.yml` que utilizamos en nuestra práctica y que ha resultado ser funcional. Lo añadimos a la ruta adecuada:
+Se incluye a continuación el archivo `.yml` que utilizamos en nuestra práctica y que ha resultado ser funcional. Usamos un editor de texto para crear el archivo:
 
 ![20220607_20h03m54s_grim](https://user-images.githubusercontent.com/91564852/172452101-f4a9bbce-0a49-4860-81ef-e3059bda3155.png)
 
@@ -89,7 +89,7 @@ Y añadimos el texto:
 
 ![20220607_20h04m25s_grim](https://user-images.githubusercontent.com/91564852/172453140-332c715b-7c56-4dff-90ae-94c74020f32e.png)
 
-- 3- Pasos para el despliegue de la aplicación.
+- **3.- Pasos para el despliegue de la aplicación.**
 
 Arrancaremos todos los contenedores incluidos en el archivo anterior con el comando:
 
@@ -117,11 +117,18 @@ Hacemos *login* en [Docker Hub] con nuestras credenciales:
 
 ![20220607_20h23m13s_grim](https://user-images.githubusercontent.com/91564852/172455594-053934b8-ea9c-4442-881a-9eddc3549845.png)
 
+Añadimos un `tag` a la imagen que vamos a escoger para hacer la prueba de subida a Docker Hub, y la subimos con `docker push`...
 
+![20220607_20h33m57s_grim](https://user-images.githubusercontent.com/91564852/172456919-97cd39ce-a605-41bb-ab49-4de91241d7a7.png)
+
+Parece que todo ha ido bien. Un `docker pull` sobre la imagen nos informará de que ésta se encuentra actualizada a la última versión, que es la que acabamos de subir.
+
+![20220607_20h37m12s_grim](https://user-images.githubusercontent.com/91564852/172457473-31f8c135-3a74-43c5-9489-3bf18d21643c.png)
 
 
 - 5- Conclusiones
 
+Ha sido complicado encontrar un modo de hacer funcionar todo este proyecto, pero gracias al trabajo de nuestro equipo ha sido finalmente posible. Las posibilidades que tiene utilizar Docker, y el que sea un probable requisito en muchos puestos de trabajo, hacen el conocimiento, cuando menos, básico, sobre su uso algo imprescindible.
 
 - 6- Annexos
 
