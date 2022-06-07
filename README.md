@@ -1,8 +1,10 @@
-# examenSistemasDocker
+# Examen Sistemas Informáticos
+
+
 
 - 1- Introducción.
 
-Para completar esta tarea, como prerequisitos necesitaremos tener instalado `docker-engine` y `docker-compose`. Se describe a continuación cómo hace la instalación en un sistema Ubuntu. Como prerrequisitos para la instalación, comenzamos por actualizar y añadir dependencias:
+Para completar esta tarea, como prerrequisito necesitaremos tener instalado `docker-engine` y `docker-compose`. Se describe a continuación cómo hace la instalación en un sistema Ubuntu. Comenzamos por actualizar y añadir dependencias:
 
 ```
  sudo apt-get update
@@ -14,7 +16,7 @@ Para completar esta tarea, como prerequisitos necesitaremos tener instalado `doc
     lsb-release
 ```
 
-A continuación añadimos la clave PGP de los repositorios oficiales de Docker:
+A continuación añadimos la clave GPG de los repositorios oficiales de Docker:
 
 ```
  sudo mkdir -p /etc/apt/keyrings
@@ -30,7 +32,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-Ya con el repositorio configurado, pasamos a actualizar repositorios e instalar Docker:
+Ya con el repositorio configurado, pasamos a actualizar repositorios e instalar toda la base para utilizar Docker:
 
 ```
  sudo apt-get update
@@ -38,7 +40,7 @@ Ya con el repositorio configurado, pasamos a actualizar repositorios e instalar 
  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
  ```
  
- Ya podemos comprobar que tenemos Docker instalado:
+ Ya podemos comprobar que tenemos Docker instalado, corriendo un simple "Hello world".
  
  ![20220607_19h46m23s_grim](https://user-images.githubusercontent.com/91564852/172448788-baeb7752-a15e-4b85-bffd-c56b12125a50.png)
 
@@ -48,7 +50,9 @@ Nos falta `docker-compose`, que podemos obtener con el siguiente comando:
  
 - 2- Configuración del archivo docker-compose.yml.
 
-Se incluye a continuación el archivo `.yml` que utilizamos en nuestra práctica y que ha resultado ser funcional.
+Se incluye a continuación el archivo `.yml` que utilizamos en nuestra práctica y que ha resultado ser funcional. Lo añadimos a la ruta adecuada:
+
+![20220607_20h03m54s_grim](https://user-images.githubusercontent.com/91564852/172452101-f4a9bbce-0a49-4860-81ef-e3059bda3155.png)
 
 ```
 version: '3.3'
@@ -81,11 +85,39 @@ services:
       - ./front:/usr/share/nginx/html
   ```
 
+Y añadimos el texto:
+
+![20220607_20h04m25s_grim](https://user-images.githubusercontent.com/91564852/172453140-332c715b-7c56-4dff-90ae-94c74020f32e.png)
 
 - 3- Pasos para el despliegue de la aplicación.
 
+Arrancaremos todos los contenedores incluidos en el archivo anterior con el comando:
+
+```
+docker-compose up -d
+```
+
+Aquí podemos ver una captura en pleno proceso:
+
+![20220607_20h17m05s_grim](https://user-images.githubusercontent.com/91564852/172454246-25f49cb8-8d49-43b8-818d-18a4637105a9.png)
+
+Parece ser que el proceso ha sido exitoso:
+
+![20220607_20h18m21s_grim](https://user-images.githubusercontent.com/91564852/172454415-16ddd4fc-5266-47ff-8028-6ed37f1e6e97.png)
+
+De hecho, el comando `docker images` nos muestra las tres imágenes creadas con nuestro archivo `.yml`:
+
+![20220607_20h26m40s_grim](https://user-images.githubusercontent.com/91564852/172456030-f3512128-96e9-4447-bf6b-f895f4eb7b88.png)
+
+
 
 - 4- Preparación y subida de la imagen a dockerhub.
+
+Hacemos *login* en [Docker Hub] con nuestras credenciales:
+
+![20220607_20h23m13s_grim](https://user-images.githubusercontent.com/91564852/172455594-053934b8-ea9c-4442-881a-9eddc3549845.png)
+
+
 
 
 - 5- Conclusiones
@@ -93,7 +125,7 @@ services:
 
 - 6- Annexos
 
-Instalación de Docker: (https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
+Instalación de Docker: [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 
 
 
