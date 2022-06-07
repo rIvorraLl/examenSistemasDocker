@@ -42,8 +42,44 @@ Ya con el repositorio configurado, pasamos a actualizar repositorios e instalar 
  
  ![20220607_19h46m23s_grim](https://user-images.githubusercontent.com/91564852/172448788-baeb7752-a15e-4b85-bffd-c56b12125a50.png)
 
+Nos falta `docker-compose`, que podemos obtener con el siguiente comando:
+
+`sudo apt install docker-compose`
  
 - 2- Configuración del archivo docker-compose.yml.
+
+Se incluye a continuación el archivo `.yml` que utilizamos en nuestra práctica y que ha resultado ser funcional.
+
+```
+version: '3.3'
+services:
+  db:
+    image: mysql:8.0.29
+    volumes:
+      - /opt/test:/var/lib/mysql
+      - ./back/db:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: **********
+      MYSQL_DATABASE: alimentacion
+      MYSQL_USER: sic
+      MYSQL_PASSWORD: *******
+    ports:
+      - "3306:3306"
+  backend:
+    depends_on:
+      - db
+    image: tomcat:9.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./back/app/target/app.war:/usr/local/tomcat/webapps/app.war
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes: 
+      - ./front:/usr/share/nginx/html
+  ```
 
 
 - 3- Pasos para el despliegue de la aplicación.
@@ -55,4 +91,6 @@ Ya con el repositorio configurado, pasamos a actualizar repositorios e instalar 
 - 5- Conclusiones
 
 
-- 6- Annexos (si lo consideráis necesario)
+- 6- Annexos
+
+Instalacihttps://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
