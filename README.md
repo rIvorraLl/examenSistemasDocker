@@ -125,6 +125,9 @@ Parece que todo ha ido bien. Un `docker pull` sobre la imagen nos informará de 
 
 ![20220607_20h37m12s_grim](https://user-images.githubusercontent.com/91564852/172457473-31f8c135-3a74-43c5-9489-3bf18d21643c.png)
 
+Finalizamos con una captura de la aplicación corriendo en el navegador:
+
+![20220607_20h51m57s_grim](https://user-images.githubusercontent.com/91564852/172460094-79e8073d-94ca-4695-9d88-47447355d789.png)
 
 - **5.- Conclusiones**
 
