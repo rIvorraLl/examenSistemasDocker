@@ -111,7 +111,7 @@ De hecho, el comando `docker images` nos muestra las tres imágenes creadas con 
 
 
 
-- 4- Preparación y subida de la imagen a dockerhub.
+- **4- Preparación y subida de la imagen a dockerhub.**
 
 Hacemos *login* en [Docker Hub] con nuestras credenciales:
 
@@ -126,11 +126,11 @@ Parece que todo ha ido bien. Un `docker pull` sobre la imagen nos informará de 
 ![20220607_20h37m12s_grim](https://user-images.githubusercontent.com/91564852/172457473-31f8c135-3a74-43c5-9489-3bf18d21643c.png)
 
 
-- 5- Conclusiones
+- **5.- Conclusiones**
 
 Ha sido complicado encontrar un modo de hacer funcionar todo este proyecto, pero gracias al trabajo de nuestro equipo ha sido finalmente posible. Las posibilidades que tiene utilizar Docker, y el que sea un probable requisito en muchos puestos de trabajo, hacen el conocimiento, cuando menos, básico, sobre su uso algo imprescindible.
 
-- 6- Annexos
+- **6.- Anexos**
 
 Instalación de Docker: [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 
